@@ -1,4 +1,11 @@
 (ns clojure-sandbox.core)
+
+;Carlos Blanco 09/06/2023
+;Conway's game of life rules 
+;-a dead cell with 3 live neighbors will live again
+;-live cell with less than 2 or more than 3 neighbors dies
+;-live cell with exactly 2 or 3 neighbors keeps living
+
 ; 1
 (defn neighbors-of-cell [[x y]]
   (list [(inc x) (inc y)]
@@ -36,8 +43,8 @@
 
     ;should have 3 living neighbors
     (println (living-neighbors-cell-living [cell-to-check] xd))
-    
-  ;all cells should survive in the next generation and they should all be printed out
+
+    ;all cells should survive in the next generation and they should all be printed out
     (doseq [cell (next-generation-living xd)]
       (println cell))))
 
